@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="128dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/itemIcon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/articleTitle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@id/itemArrow"
+            app:layout_constraintStart_toEndOf="@+id/itemIcon"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toTopOf="@id/articleAuthors"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/articleAuthors"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            app:layout_constraintBottom_toTopOf="@id/articleDate"
+            app:layout_constraintEnd_toStartOf="@id/itemArrow"
+            app:layout_constraintStart_toEndOf="@+id/itemIcon"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintTop_toBottomOf="@+id/articleTitle" />
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/articleDate"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/articleAuthors"
+            android:src="@drawable/ic_baseline_calendar_month_24"
+            />
+
+        <TextView
+            android:id="@+id/articleDate"
+            android:text="2017-25-15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/itemArrow"
+            app:layout_constraintTop_toBottomOf="@+id/articleAuthors"
+            />
+
+        <ImageView
+            android:id="@+id/itemArrow"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:layout_width="56dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
