@@ -16,7 +16,7 @@ data class ArticleModel(
     val media: ArrayList<Media?>? = arrayListOf(),
 ) {
     fun toEntity(): ArticleEntity {
-        val mediaEntity = if (media.isNullOrEmpty()) null else media?.get(0)
+        val mediaEntity = if (media.isNullOrEmpty()) null else media[0]
         return ArticleEntity(
             uri,
             url,

@@ -15,8 +15,8 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.raywenderlich.rwnews.runner.HiltTestRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "API_KEY", API_KEY)
     }
 
@@ -46,6 +46,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.test.espresso:espresso-contrib:3.4.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -65,6 +66,11 @@ dependencies {
     //MockWebserver
     testImplementation('com.squareup.okhttp3:mockwebserver:4.9.1')
     // Needed for unit testing API
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
-
+    androidTestImplementation "com.google.dagger:hilt-android-testing:2.42"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:2.42"
+    //MockK
+    testImplementation "io.mockk:mockk:1.11.0"
+    implementation 'ru.gildor.coroutines:kotlin-coroutines-retrofit:1.1.0'
 }
