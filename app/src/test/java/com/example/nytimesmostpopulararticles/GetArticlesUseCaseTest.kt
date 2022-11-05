@@ -1,8 +1,8 @@
 package com.example.nytimesmostpopulararticles
 
-import com.example.nytimesmostpopulararticles.data.remote.model.Model
 import com.example.nytimesmostpopulararticles.domain.ArticlesRepository
 import com.example.nytimesmostpopulararticles.domain.GetArticlesUseCase
+import com.example.nytimesmostpopulararticles.domain.entity.ArticleEntity
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -11,13 +11,13 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import retrofit2.Call
+import com.example.nytimesmostpopulararticles.app.utill.Result
 
 @RunWith(JUnit4::class)
 class GetArticlesUseCaseTest {
 
     private val repoMock = mockk<ArticlesRepository>()
-    private val callMock = mockk<Call<Model>>()
+    private val callMock = mockk<Result<List<ArticleEntity>>>()
 
     @Before
     fun setup() {

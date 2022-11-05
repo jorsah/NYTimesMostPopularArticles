@@ -5,14 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.nytimesmostpopulararticles.app.utill.Result
-import com.example.nytimesmostpopulararticles.data.remote.model.Model
 import com.example.nytimesmostpopulararticles.domain.GetArticlesUseCase
 import com.example.nytimesmostpopulararticles.domain.entity.ArticleEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,20 +21,7 @@ class ArticlesListViewModel @Inject constructor(private val getArticlesUseCase: 
     fun requestArticles() {
         _articlesListLiveData.postValue(Result.Loading())
         viewModelScope.launch {
-            getArticlesUseCase().enqueue(object : Callback<Model> {
-                override fun onResponse(call: Call<Model>, response: Response<Model>) {
-                    if (response.isSuccessful) {
-                        _articlesListLiveData.postValue(
-                            Result.Success(
-                                response.body()?.results?.map { it.toEntity() })
-                        )
-                    }
-                }
-
-                override fun onFailure(call: Call<Model>, t: Throwable) {
-                    _articlesListLiveData.postValue(Result.Failure(t.message, t))
-                }
-            })
+            _articlesListLiveData.postValue(getArticlesUseCase()!!)
         }
     }
 }
